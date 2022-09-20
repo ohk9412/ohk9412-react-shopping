@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap');
+
+
+@media (max-width: 1099px) {
+    .menu__item {
+        margin: 15px 0;
+        text-decoration-line: none;
+        font-family: 'Dongle', sans-serif;
+        font-size: 30px;
+    }
+    .menu__item:link{
+        color: black;
+    }
+
+    .menu__item:visited{
+        color: black;
+    }
+
+    .menu__item:hover {
+        color: gray;
+    }
+}
+
+@media (min-width: 1100px) {
+    .menu__item {
+        padding: 1rem;
+        text-decoration-line: none;
+        font-family: 'Dongle', sans-serif;
+        font-size: 30px;
+    }
+    .menu__item:link{
+        color: black;
+    }
+
+    .menu__item:visited{
+        color: black;
+    }
+
+    .menu__item:hover {
+        color: gray;
+    }
+}
