@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap');
 
 .map {
     margin: 5rem 10rem 5rem 10rem;
@@ -11,6 +13,9 @@
 }
 
 .text{
+    font-family: 'Nanum Gothic';
+    font-size: 20px;
     margin-bottom: 5rem;
+    
 }
 

@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-// import { RenderAfterNavermapsLoaded, NaverMap } from 'react-naver-maps';
 
 
 export const NaverAPIMap = (props) => {
@@ -18,24 +17,33 @@ export const NaverAPIMap = (props) => {
     position: location,
     map:map
   })
+  const contentString = [
+    '<div style="padding:1rem"> ',
+    '   <h3>청춘상회</h3>',
+    '   <p>부산광역시 연제구 과정로 225 <br />',
+    '   <a href="https://map.naver.com/v5/entry/place/1615083087?c=14371643.6402993,4189396.1999932,13,0,0,0,dh&placePath=%2Fhome%3Fentry=plt" target="_blank">네이버로 보기</a>',
+    '   </p>',
+    '</div>'
+  ].join('');
+  const infowindow = new window.naver.maps.InfoWindow({
+    content: contentString
+    
+  });
+  window.naver.maps.Event.addListener(marker, "click", function(e) {
+    if (infowindow.getMap()) {
+        infowindow.close();
+    } else {
+        infowindow.open(map, marker);
+    }
+});
+  infowindow.open(map, marker);
 });
   
   return (
-    // <RenderAfterNavermapsLoaded 
-    // ncpClientId={process.env.REACT_APP_NAVER_API_KEY}
-    // error={<p>Maps Load Error</p>}
-    // loading={<p>Maps Loading</p>}
-    // >
-    //   <NaverMap
-    //     mapDivId={"react-naver-map"} // default name
-    //     defaultCenter={{lat:37.49988, lng: 127.03856} }
-    //     defaultZoom={17}
-    //     zoomControl={true}
-    //     naverRef={mapRef}
-    //   />
-    // </RenderAfterNavermapsLoaded>
     <>
-    <div ref={mapRef} style={{width:'30rem',height:'20rem',border:'solid 1px'}}></div>
+    <div 
+    ref={mapRef} 
+    style={{width:'30rem',height:'20rem',border:'solid 1px'}}></div>
     </>
   );
 };
