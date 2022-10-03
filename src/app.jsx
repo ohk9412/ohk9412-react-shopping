@@ -6,14 +6,16 @@ import Home from './component/home/home';
 import Livestock from './component/livestock/livestock';
 import Seafood from './component/seafood/seafood';
 import Produce from './component/produce/produce';
+import Login from './component/login/login';
 
 
-function App() {
+function App({authService}) {
   return (
     <>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Header/>
         <Routes>
+          <Route path="/login" axact element={<Login authService={authService} />} />
           <Route path={"/"} axact element={<Home />} />
           <Route path={"/livestock"} axact element={<Livestock />} />
           <Route path={"/seafood"} axact element={<Seafood />} />
