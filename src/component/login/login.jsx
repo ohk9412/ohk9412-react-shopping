@@ -21,21 +21,22 @@ const Login = ({authService}) => {
             user && goToHome(user.id);
         });
     });
+
     return(
-        <>
+        <div>
             <ul className={styles.list}>
-                <li className={styles.item}>
-                    <button className={styles.button} onClick={onLogin}>
-                        Google
-                    </button>
-                </li>
                 <li className={styles.item}>
                     <button className={styles.button} onClick={onLogin}>
                         Email
                     </button>
                 </li>
+                <li className={styles.item}>
+                    <button className={styles.button} onClick={onLogin}>
+                        Google
+                    </button>
+                </li>
             </ul>
-        </>
+        </div>
     )
 };
 

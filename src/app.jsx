@@ -13,7 +13,7 @@ function App({authService}) {
   return (
     <>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <Header/>
+      <Header authService={authService} />
         <Routes>
           <Route path="/login" axact element={<Login authService={authService} />} />
           <Route path={"/"} axact element={<Home />} />

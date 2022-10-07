@@ -3,13 +3,12 @@ import { googleProvider, firebaseAuth } from './firebase';
 
 class AuthService{
     login(providerName) {
-        const auth = getAuth();
         const authProvider = this.getprovider(providerName)
         return signInWithPopup(firebaseAuth,authProvider)
     }
 
     logout () {
-        firebaseAuth.signOut();
+        firebaseAuth.signOut(firebaseAuth);
     }
 
     onAuthChange(onUserChanged){
@@ -43,8 +42,7 @@ class AuthService{
     // }
     
     emailsignout () {
-        const auth = getAuth();
-        signOut(auth).then(()=> {
+        signOut(firebaseAuth).then(()=> {
         }).catch((error)=> {});
     }
 
