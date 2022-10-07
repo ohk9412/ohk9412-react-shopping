@@ -5,11 +5,13 @@ import styles from './header.module.css'
 import { useEffect } from 'react';
 import { useState } from 'react';
 
+
 const Header = ({authService}) => {
     const navigate = useNavigate();
     const navigateState = navigate.state;
     const [userId, setUserId] = useState(navigateState && navigateState.id);
-    
+    // firebaseAuth
+
     const onLogout = useCallback(() => {
         authService.logout();
     },[authService]);
@@ -18,6 +20,9 @@ const Header = ({authService}) => {
         authService.onAuthChange(user => {
             if(user) {
                 setUserId(user.uid);
+            }
+            else{
+                setUserId(undefined);
             }
         })
     })
@@ -32,7 +37,7 @@ const Header = ({authService}) => {
                         로그인
                     </Link>
                     : <button 
-                    onClick={() => onLogout}>
+                    onClick={onLogout}>
                     로그아웃
                 </button>
                 }   

@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, EmailAuthProvider, getAuth,  signInWithEmailAndPassword,  signInWithPopup,  signOut } from "firebase/auth";
+import { EmailAuthProvider,  getAuth,  signInWithPopup,  signOut } from "firebase/auth";
 import { googleProvider, firebaseAuth } from './firebase';
 
 class AuthService{
@@ -8,7 +8,8 @@ class AuthService{
     }
 
     logout () {
-        firebaseAuth.signOut(firebaseAuth);
+        const auth = getAuth();
+        return signOut(firebaseAuth);
     }
 
     onAuthChange(onUserChanged){
