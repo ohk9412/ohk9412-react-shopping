@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './login.module.css';
+import { useRef } from 'react';
 
 const Login = ({authService}) => {
     const navigate = useNavigate();
@@ -22,8 +23,26 @@ const Login = ({authService}) => {
         });
     });
 
+    const emailRef = useRef();
+    const passwordRef = useRef();
+
     return(
-        <div>
+        <div className={styles.login}>
+            <input 
+            ref={emailRef}
+            className={styles.input}
+            type="text"
+            name="email"
+            placeholder="Email"
+            />
+            <input
+            ref={passwordRef}
+            className={styles.input}
+            type="password"
+            name="password"
+            placeholder="Password"
+            
+            />
             <ul className={styles.list}>
                 <li className={styles.item}>
                     <button className={styles.button} onClick={onLogin}>
